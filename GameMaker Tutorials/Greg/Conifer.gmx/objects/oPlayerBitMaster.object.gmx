@@ -59,7 +59,7 @@ if instance_exists(IncomingPlayerBit) {
     audio_play_sound(aEmbiggen,1,false)  
     
     //Destroy us if we've shrunk ourselves to oblivion
-    if image_xscale &gt;= 2 {
+    if image_xscale &gt;= 1.8 {
         instance_create(x,y, oPlayer)
         instance_destroy()
     }
