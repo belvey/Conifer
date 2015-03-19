@@ -6,11 +6,13 @@
   <NewExtensions/>
   <sounds name="sound">
     <sound>sound\sound0</sound>
+    <sound>sound\aFireMP3</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\sEnemy</sprite>
     <sprite>sprites\sPlayer</sprite>
     <sprite>sprites\sBullet</sprite>
+    <sprite>sprites\sPlayerChunk</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -20,6 +22,7 @@
     <object>objects\oEnemy</object>
     <object>objects\oBullet</object>
     <object>objects\oPlayer</object>
+    <object>objects\oPlayerChunk</object>
     <object>objects\oGame</object>
   </objects>
   <rooms name="rooms">
