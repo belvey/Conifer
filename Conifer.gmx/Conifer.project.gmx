@@ -6,11 +6,17 @@
   <NewExtensions/>
   <sounds name="sound">
     <sound>sound\aShoot</sound>
+    <sound>sound\aShrink</sound>
+    <sound>sound\aEmbiggen</sound>
+    <sound>sound\aEnemyShrink</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\sEnemy</sprite>
     <sprite>sprites\sPlayer</sprite>
+    <sprite>sprites\sPlayerBit</sprite>
+    <sprite>sprites\sPlayerBitMaster</sprite>
     <sprite>sprites\sBullet</sprite>
+    <sprite>sprites\sIndicator</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -20,7 +26,10 @@
     <object>objects\oEnemy</object>
     <object>objects\oBullet</object>
     <object>objects\oPlayer</object>
+    <object>objects\oPlayerBitMaster</object>
+    <object>objects\oPlayerBit</object>
     <object>objects\oGame</object>
+    <object>objects\oIndicator</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room1</room>

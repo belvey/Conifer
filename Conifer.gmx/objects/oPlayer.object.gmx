@@ -48,7 +48,7 @@ image_angle = point_direction(x,y,mouse_x,mouse_y)
 
 /* Firing */
 
-if mouse_check_button(mb_left) {
+if mouse_check_button_pressed(mb_left) {
 
     MyBullet = instance_create(x,y,oBullet)
         
@@ -56,7 +56,7 @@ if mouse_check_button(mb_left) {
     MyBullet.speed = 600 / room_speed
     MyBullet.image_angle = image_angle
     
-    Kick = 300 / room_speed
+    Kick = 600 / room_speed
     KickDirection = image_angle + 180
     
     x = x + lengthdir_x(Kick,KickDirection)
@@ -65,6 +65,29 @@ if mouse_check_button(mb_left) {
     audio_play_sound(aShoot,1,false)    
     
 }
+ 
+
+/* Death */
+
+IncomingEnemy = instance_place(x,y,oEnemy)
+
+if instance_exists(IncomingEnemy) {
+    
+      //Shrink ourselves
+    image_xscale = image_xscale - 0.2
+    image_yscale = image_xscale
+    instance_create(x + random_range(200,500), y + random_range(200,500), oPlayerBit)
+    audio_play_sound(aShrink,1,false)  
+    
+    //Destroy us if we've shrunk ourselves to oblivion
+    if image_xscale &lt;= 0 {
+        instance_create(x,y, oPlayerBitMaster)
+        instance_destroy()
+    }
+
+
+}
+
 
 /* Stay inside the room */
 
