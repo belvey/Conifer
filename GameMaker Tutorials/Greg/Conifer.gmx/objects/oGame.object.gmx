@@ -27,18 +27,18 @@
             <kind>1</kind>
             <string>/* Screen Bullshit */
 
-window_set_fullscreen(false)
+window_set_fullscreen(true)
 
 //How big is the screen?
 ScreenWidth = display_get_width()
 ScreenHeight = display_get_height()
 
 //Set size of window - you don't need to do this
-window_set_size(ScreenWidth,ScreenHeight)
+//window_set_size(ScreenWidth,ScreenHeight)
 
 //How much of the room do we want on-screen?
-view_wview = ScreenWidth * 2
-view_hview = ScreenHeight * 2
+view_wview = ScreenWidth * 1
+view_hview = ScreenHeight * 1
 
 //How much of our screen do we want that to take up?
 view_wport = ScreenWidth
