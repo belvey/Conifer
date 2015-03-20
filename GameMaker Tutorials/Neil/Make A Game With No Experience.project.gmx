@@ -5,14 +5,14 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound">
-    <sound>sound\sound0</sound>
-    <sound>sound\aFireMP3</sound>
+    <sound>sound\aPlayerDeath</sound>
+    <sound>sound\aShoot</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\sEnemy</sprite>
     <sprite>sprites\sPlayer</sprite>
-    <sprite>sprites\sBullet</sprite>
     <sprite>sprites\sPlayerChunk</sprite>
+    <sprite>sprites\sBullet</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>

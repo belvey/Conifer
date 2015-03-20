@@ -25,9 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Destroy self if outside the room
-if x &lt; -1 or x &gt; room_width + 1 or y &lt; -1 or y &gt; room_height + 1 {
-    instance_destroy()
+            <string>/* Destroy when we leave the room */
+if x &lt; 0 or y &lt; 0 or x &gt; room_width or y &gt; room_height {
+    instance_destroy()    
 }
 </string>
           </argument>

@@ -42,6 +42,7 @@ if keyboard_check(ord('D')) {
     x = x + MySpeed
 }
 
+
 /* Facing */
 
 image_angle = point_direction(x,y,mouse_x,mouse_y)
@@ -57,37 +58,48 @@ if mouse_check_button(mb_left) {
     MyBullet.speed = 600 / room_speed
     MyBullet.image_angle = image_angle
     
-    audio_play_sound(aFireMP3,10,false)
-
-//kick
     Kick = 300 / room_speed
     KickDirection = image_angle + 180
     
     x = x + lengthdir_x(Kick,KickDirection)
-    y = y + lengthdir_y(Kick,KickDirection)
+    y = y + lengthdir_y(Kick,KickDirection)    
+    
+    audio_play_sound(aShoot,1,false)    
+    
 }
 
-//Stay inside the room
-if x &lt; 10 {x = 10}
-if x &gt; room_width - 10 {x = room_width - 10}
-if y &lt; 10 {y = 10}
-if y &gt; room_height - 10 {y = room_height - 10}
 
-//Death
+/* Stay inside the room */
 
+if x &lt; 0 { x = 0 }
+if y &lt; 0 { y = 0 }
+if x &gt; room_width { x = room_width }
+if y &gt; room_height { y = room_height }
+
+
+/* Death */
+
+//Look for an enemy touching us
 EnemyTouchingMe = instance_place(x,y,oEnemy)
 
-if instance_exists(EnemyTouchingMe){
+//If there is one
+if instance_exists(EnemyTouchingMe) {
 
-    TotalBitsToCreate = 6
     BitsCreatedSoFar = 0
     
-    while(BitsCreatedSoFar &lt; TotalBitsToCreate){
-    
-    instance_create(x,y,oPlayerChunk)
-    BitsCreatedSoFar = BitsCreatedSoFar + 1
-    
+    //Create a number of bits - this loops until enough bits have been created
+    while BitsCreatedSoFar &lt; oGame.NumberOfBitsThePlayerIsMadeOf {
+        //Create a bit
+        instance_create(x,y,oPlayerChunk)
+        //Count it as created
+        BitsCreatedSoFar = BitsCreatedSoFar + 1
     }
+    
+    //Play an explodey sound
+    audio_play_sound(aPlayerDeath,1,false)
+    
+    //Destroy the player
+    instance_destroy()
 
 }
 </string>
