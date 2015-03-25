@@ -25,7 +25,35 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string></string>
+            <string>characterSpeed = 2
+
+if keyboard_check(ord('A')){
+    destination = x - 64
+    while x &gt; destination{
+        x = x - characterSpeed
+    }
+}
+
+if keyboard_check(ord('W')) {
+    destination = y - 64
+    while y &gt; destination{
+        y = y - characterSpeed
+    }
+}
+if keyboard_check(ord('S')) {
+    destination = y + 64
+    while y &lt; destination{
+        y = y + characterSpeed
+    }
+}
+ 
+if keyboard_check(ord('D')) {
+    destination = x + 64
+    while x &lt; destination{
+        x = x + characterSpeed
+    }
+}
+</string>
           </argument>
         </arguments>
       </action>
