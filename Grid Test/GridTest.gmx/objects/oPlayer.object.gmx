@@ -8,6 +8,30 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>xDestination = x
+yDestination = y
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -25,33 +49,35 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>characterSpeed = 2
+            <string>characterSpeed = 4
 
-if keyboard_check(ord('A')){
-    destination = x - 64
-    while x &gt; destination{
-        x = x - characterSpeed
-    }
+if keyboard_check(ord('A')) {
+    xDestination = x - 64
 }
 
 if keyboard_check(ord('W')) {
-    destination = y - 64
-    while y &gt; destination{
-        y = y - characterSpeed
-    }
+    yDestination = y - 64
 }
+
 if keyboard_check(ord('S')) {
-    destination = y + 64
-    while y &lt; destination{
-        y = y + characterSpeed
-    }
+    yDestination = y + 64
 }
  
 if keyboard_check(ord('D')) {
-    destination = x + 64
-    while x &lt; destination{
-        x = x + characterSpeed
-    }
+    xDestination = x + 64
+}
+
+if y &gt; yDestination {
+    y = y - characterSpeed
+}
+if x &lt; xDestination {
+    x = x + characterSpeed
+}
+if y &lt; yDestination {
+    y = y + characterSpeed
+}
+if x &gt; xDestination {
+    x = x - characterSpeed
 }
 </string>
           </argument>
