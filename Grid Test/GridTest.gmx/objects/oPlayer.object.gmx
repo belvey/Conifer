@@ -53,18 +53,22 @@ yDestination = y
 
 if keyboard_check(ord('A')) {
     xDestination = x - 64
+    image_angle = 180;
 }
 
 if keyboard_check(ord('W')) {
     yDestination = y - 64
+    image_angle = 90;
 }
 
 if keyboard_check(ord('S')) {
     yDestination = y + 64
+    image_angle = 270;
 }
  
 if keyboard_check(ord('D')) {
     xDestination = x + 64
+    image_angle = 0;
 }
 
 if y &gt; yDestination {

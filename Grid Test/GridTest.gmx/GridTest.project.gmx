@@ -7,6 +7,7 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\sPlayer</sprite>
+    <sprite>sprites\pole</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -14,6 +15,8 @@
   <paths name="paths"/>
   <objects name="objects">
     <object>objects\oPlayer</object>
+    <object>objects\oGlobal</object>
+    <object>objects\oPole</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
