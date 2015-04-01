@@ -52,22 +52,22 @@ yDestination = y
             <string>characterSpeed = 4
 
 if keyboard_check(ord('A')) {
-    xDestination = x - 64
+    xDestination = xDestination - 64
     image_angle = 180;
 }
 
 if keyboard_check(ord('W')) {
-    yDestination = y - 64
+    yDestination = yDestination - 64
     image_angle = 90;
 }
 
 if keyboard_check(ord('S')) {
-    yDestination = y + 64
+    yDestination = yDestination + 64
     image_angle = 270;
 }
  
 if keyboard_check(ord('D')) {
-    xDestination = x + 64
+    xDestination = xDestination + 64
     image_angle = 0;
 }
 
