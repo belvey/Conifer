@@ -51,24 +51,24 @@ yDestination = y
             <kind>1</kind>
             <string>characterSpeed = 4
 
-if keyboard_check(ord('A')) {
-    xDestination = xDestination - 64
-    image_angle = 180;
+if x = xDestination and y = yDestination and keyboard_check(ord('A')){
+        xDestination = xDestination - 64
+        image_angle = 180;
 }
-
-if keyboard_check(ord('W')) {
-    yDestination = yDestination - 64
-    image_angle = 90;
+    
+if x = xDestination and y = yDestination and keyboard_check(ord('W')) {
+        yDestination = yDestination - 64
+        image_angle = 90;
 }
-
-if keyboard_check(ord('S')) {
-    yDestination = yDestination + 64
-    image_angle = 270;
+    
+if x = xDestination and y = yDestination and keyboard_check(ord('S')) {
+        yDestination = yDestination + 64
+        image_angle = 270;
 }
- 
-if keyboard_check(ord('D')) {
-    xDestination = xDestination + 64
-    image_angle = 0;
+     
+if x = xDestination and y = yDestination and keyboard_check(ord('D')) {
+        xDestination = xDestination + 64
+        image_angle = 0;
 }
 
 if y &gt; yDestination {
