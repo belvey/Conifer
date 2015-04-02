@@ -29,12 +29,12 @@
 
 MySpeed = 300 / room_speed
 
-if keyboard_check(ord('W')) {
-    y = y - MySpeed
-}
-if keyboard_check(ord('S')) {
-    y = y + MySpeed
-}
+//if keyboard_check(ord('W')) {
+//    y = y - MySpeed
+//}
+//if keyboard_check(ord('S')) {
+//    y = y + MySpeed
+//}
 if keyboard_check(ord('A')) {
     x = x - MySpeed
 }
@@ -44,7 +44,7 @@ if keyboard_check(ord('D')) {
 
 /* Facing */
 
-image_angle = point_direction(x,y,mouse_x,mouse_y)
+image_angle = 90
 
 /* Firing */
 
@@ -56,11 +56,11 @@ if mouse_check_button_pressed(mb_left) {
     MyBullet.speed = 600 / room_speed
     MyBullet.image_angle = image_angle
     
-    Kick = 600 / room_speed
-    KickDirection = image_angle + 180
+    //Kick = 600 / room_speed
+    //KickDirection = image_angle + 180
     
-    x = x + lengthdir_x(Kick,KickDirection)
-    y = y + lengthdir_y(Kick,KickDirection)
+    //x = x + lengthdir_x(Kick,KickDirection)
+    //y = y + lengthdir_y(Kick,KickDirection)
     
     audio_play_sound(aShoot,1,false)    
     
