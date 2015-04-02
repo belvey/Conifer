@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>xDestination = x
 yDestination = y
+direction = 0
 </string>
           </argument>
         </arguments>
@@ -49,40 +50,94 @@ yDestination = y
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>characterSpeed = 4
+            <string>//How fast does the oPlayer move?
 
-if x = xDestination and y = yDestination and keyboard_check(ord('A')){
-        xDestination = xDestination - 64
-        image_angle = 180;
-}
-    
-if x = xDestination and y = yDestination and keyboard_check(ord('W')) {
-        yDestination = yDestination - 64
-        image_angle = 90;
-}
-    
-if x = xDestination and y = yDestination and keyboard_check(ord('S')) {
-        yDestination = yDestination + 64
-        image_angle = 270;
-}
-     
-if x = xDestination and y = yDestination and keyboard_check(ord('D')) {
-        xDestination = xDestination + 64
-        image_angle = 0;
+characterSpeed = 8
+
+//Redefining the next destination of oPlayer when input is detected.
+//Also restricts oPlayer from moving in the opposite of their current direction
+
+if(x = xDestination) and (y = yDestination) and keyboard_check(ord('D')) and (direction != 1){
+    xDestination = xDestination + 64;
+    image_angle = 0;
+    direction = 2;
 }
 
-if y &gt; yDestination {
-    y = y - characterSpeed
+if(x = xDestination) and (y = yDestination) and keyboard_check(ord('A')) and (direction != 2){
+    xDestination = xDestination - 64;
+    image_angle = 180;
+    direction = 1;
 }
-if x &lt; xDestination {
-    x = x + characterSpeed
+    
+if(x = xDestination) and (y = yDestination) and keyboard_check(ord('W')) and (direction != 4) {
+    yDestination = yDestination - 64;
+    image_angle = 90;
+    direction = 3;
 }
-if y &lt; yDestination {
-    y = y + characterSpeed
+    
+if(x = xDestination) and (y = yDestination) and keyboard_check(ord('S')) and (direction != 3) {
+    yDestination = yDestination + 64;
+    image_angle = 270;
+    direction = 4;
 }
-if x &gt; xDestination {
-    x = x - characterSpeed
+
+//Moving oPlayer to the next destination
+
+if (y &gt; yDestination) {
+    y = y - characterSpeed;
 }
+if (x &lt; xDestination) {
+    x = x + characterSpeed;
+}
+if (y &lt; yDestination) {
+    y = y + characterSpeed;
+}
+if (x &gt; xDestination) {
+    x = x - characterSpeed;
+}
+
+//oPlayer will keep going in their current direction unless another input is detected when they reach their next destination
+
+if (x = xDestination and y = yDestination) {
+    if (direction = 1 and ((keyboard_check(vk_nokey)) or keyboard_check(ord('D'))))  {
+        xDestination = xDestination - 64;
+    }else if (direction = 2 and ((keyboard_check(vk_nokey))or keyboard_check(ord('A')))){
+        xDestination = xDestination + 64;
+    }else if (direction = 3 and ((keyboard_check(vk_nokey))or keyboard_check(ord('S')))){
+        yDestination = yDestination - 64;
+    }else if (direction = 4 and ((keyboard_check(vk_nokey))or keyboard_check(ord('W')))){
+        yDestination = yDestination + 64;
+    }
+}
+
+//bounce player back into the room if they reach the edge
+
+if (x&lt;(room_width-room_width)){
+    xDestination = 32;
+    image_angle = 0;
+    direction = 2;
+}
+
+if (x&gt;(room_width)){
+    xDestination = room_width - 32;
+    image_angle = 180;
+    direction = 1;
+}
+
+if (y&lt;(room_height-room_height)){
+    yDestination = 32;
+    image_angle = 270;
+    direction = 4;
+}
+
+if (y&gt;(room_height)){
+    yDestination = room_height - 32;
+    image_angle = 90;
+    direction = 3;
+}
+
+
+
 </string>
           </argument>
         </arguments>
