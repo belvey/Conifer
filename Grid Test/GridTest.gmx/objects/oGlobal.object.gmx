@@ -25,7 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string></string>
+            <string>if (keyboard_check(vk_escape)) {
+    game_end();
+}
+</string>
           </argument>
         </arguments>
       </action>
