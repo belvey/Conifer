@@ -52,7 +52,7 @@ direction = 0
             <kind>1</kind>
             <string>//How fast does the oPlayer move?
 
-characterSpeed = 2
+characterSpeed = 4
 
 //Redefining the next destination of oPlayer when input is detected.
 //Also restricts oPlayer from moving in the opposite of their current direction
