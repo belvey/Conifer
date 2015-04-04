@@ -58,25 +58,25 @@ characterSpeed = 2
 //Also restricts oPlayer from moving in the opposite of their current direction
 
 if(x = xDestination) and (y = yDestination) and keyboard_check(ord('D')) and (direction != 1){
-    xDestination = xDestination + 64;
+    xDestination = xDestination + oGlobal.gridBase;
     image_angle = 0;
     direction = 2;
 }
 
 if(x = xDestination) and (y = yDestination) and keyboard_check(ord('A')) and (direction != 2){
-    xDestination = xDestination - 64;
+    xDestination = xDestination - oGlobal.gridBase;
     image_angle = 180;
     direction = 1;
 }
     
 if(x = xDestination) and (y = yDestination) and keyboard_check(ord('W')) and (direction != 4) {
-    yDestination = yDestination - 64;
+    yDestination = yDestination - oGlobal.gridBase;
     image_angle = 90;
     direction = 3;
 }
     
 if(x = xDestination) and (y = yDestination) and keyboard_check(ord('S')) and (direction != 3) {
-    yDestination = yDestination + 64;
+    yDestination = yDestination + oGlobal.gridBase;
     image_angle = 270;
     direction = 4;
 }
@@ -100,44 +100,41 @@ if (x &gt; xDestination) {
 
 if (x = xDestination and y = yDestination) {
     if (direction = 1 and ((keyboard_check(vk_nokey)) or keyboard_check(ord('D'))))  {
-        xDestination = xDestination - 64;
+        xDestination = xDestination - oGlobal.gridBase;
     }else if (direction = 2 and ((keyboard_check(vk_nokey))or keyboard_check(ord('A')))){
-        xDestination = xDestination + 64;
+        xDestination = xDestination + oGlobal.gridBase;
     }else if (direction = 3 and ((keyboard_check(vk_nokey))or keyboard_check(ord('S')))){
-        yDestination = yDestination - 64;
+        yDestination = yDestination - oGlobal.gridBase;
     }else if (direction = 4 and ((keyboard_check(vk_nokey))or keyboard_check(ord('W')))){
-        yDestination = yDestination + 64;
+        yDestination = yDestination + oGlobal.gridBase;
     }
 }
 
 //bounce player back into the room if they reach the edge
 
 if (x&lt;(room_width-room_width)){
-    xDestination = 32;
+    xDestination = (oGlobal.gridBase/2);
     image_angle = 0;
     direction = 2;
 }
 
 if (x&gt;(room_width)){
-    xDestination = room_width - 32;
+    xDestination = room_width - (oGlobal.gridBase/2);
     image_angle = 180;
     direction = 1;
 }
 
 if (y&lt;(room_height-room_height)){
-    yDestination = 32;
+    yDestination = (oGlobal.gridBase/2);
     image_angle = 270;
     direction = 4;
 }
 
 if (y&gt;(room_height)){
-    yDestination = room_height - 32;
+    yDestination = room_height - (oGlobal.gridBase/2);
     image_angle = 90;
     direction = 3;
 }
-
-
-
 </string>
           </argument>
         </arguments>
