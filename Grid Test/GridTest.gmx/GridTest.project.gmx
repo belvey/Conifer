@@ -20,6 +20,7 @@
     <object>objects\oPlayer</object>
     <object>objects\oGlobal</object>
     <object>objects\oPole</object>
+    <object>objects\oBorder</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
