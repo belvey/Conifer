@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>speed = 100 / room_speed
-direction = random(360)
+direction = random(0)
 </string>
           </argument>
         </arguments>
@@ -50,16 +50,13 @@ direction = random(360)
           <argument>
             <kind>1</kind>
             <string>/* Facing */
-image_angle = direction
+image_angle = 0
 
 /* Bouncing */
 
-if y &lt; 0 or y &gt; room_height {
-    vspeed = vspeed * - 1
-}
-
-if x &lt; 0 or x &gt; room_width {
-    hspeed = hspeed * - 1
+if x &lt; 100 or x &gt; (room_width - 100) {
+    hspeed = hspeed * - 1 
+    y = y + 100
 }
 
 /* Damage */
