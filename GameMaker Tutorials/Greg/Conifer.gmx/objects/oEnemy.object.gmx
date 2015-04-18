@@ -50,13 +50,28 @@ direction = random(0)
           <argument>
             <kind>1</kind>
             <string>/* Facing */
-image_angle = 0
+image_angle = 270
 
 /* Bouncing */
 
 if x &lt; 100 or x &gt; (room_width - 100) {
     hspeed = hspeed * - 1 
     y = y + 100
+}
+
+/* Firing */
+
+if mouse_check_button_pressed(mb_left) {
+
+    MyBullet = instance_create(x,y,oEnemyBullet)
+        
+    MyBullet.direction = image_angle
+    MyBullet.speed = 600 / room_speed
+    MyBullet.image_angle = image_angle
+    
+ 
+    audio_play_sound(aShoot,1,false)    
+    
 }
 
 /* Damage */

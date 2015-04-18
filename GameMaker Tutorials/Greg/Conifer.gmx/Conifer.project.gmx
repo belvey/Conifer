@@ -25,6 +25,7 @@
   <objects name="objects">
     <object>objects\oEnemy</object>
     <object>objects\oBullet</object>
+    <object>objects\oEnemyBullet</object>
     <object>objects\oPlayer</object>
     <object>objects\oPlayerBitMaster</object>
     <object>objects\oPlayerBit</object>
