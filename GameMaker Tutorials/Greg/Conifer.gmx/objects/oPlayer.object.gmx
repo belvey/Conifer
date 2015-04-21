@@ -73,17 +73,7 @@ IncomingEnemy = instance_place(x,y,oEnemyBullet)
 
 if instance_exists(IncomingEnemy) {
     
-      //Shrink ourselves
-    image_xscale = image_xscale - 0.2
-    image_yscale = image_xscale
-    instance_create(x + random_range(200,500), y + random_range(200,500), oPlayerBit)
-    audio_play_sound(aShrink,1,false)  
-    
-    //Destroy us if we've shrunk ourselves to oblivion
-    if image_xscale &lt;= 0 {
-        instance_create(x,y, oPlayerBitMaster)
-        instance_destroy()
-    }
+    instance_destroy()
 
 
 }
