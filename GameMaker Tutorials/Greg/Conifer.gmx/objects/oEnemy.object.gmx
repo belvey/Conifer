@@ -54,7 +54,7 @@ image_angle = 270
 
 /* Firing */
 
-if mouse_check_button_pressed(mb_left) {
+if x &gt; 500 and x &lt; 503 {
 
     MyBullet = instance_create(x,y,oEnemyBullet)
         
