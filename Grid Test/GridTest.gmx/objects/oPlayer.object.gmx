@@ -27,7 +27,8 @@
             <kind>1</kind>
             <string>xDestination = x
 yDestination = y
-direction = 0
+oDirection = 0
+nextInput = 0
 </string>
           </argument>
         </arguments>
@@ -54,31 +55,49 @@ direction = 0
 
 characterSpeed = 4
 
-//Redefining the next destination of oPlayer when input is detected.
-//Also restricts oPlayer from moving in the opposite of their current direction
+//Buffering input for next available input opportunity
 
-if(x = xDestination) and (y = yDestination) and keyboard_check(ord('D')) and (direction != 1){
-    xDestination = xDestination + oGlobal.gridBase;
-    image_angle = 0;
-    direction = 2;
+if keyboard_check(ord('A')) {
+    nextInput = 1
 }
 
-if(x = xDestination) and (y = yDestination) and keyboard_check(ord('A')) and (direction != 2){
+if keyboard_check(ord('D')) {
+    nextInput = 2
+}
+
+if keyboard_check(ord('W')) {
+    nextInput = 3
+}
+
+if keyboard_check(ord('S')) {
+    nextInput = 4
+}
+
+//Redefining the next destination of oPlayer when input is detected.
+//Also restricts oPlayer from moving in the opposite of their current oDirection
+
+if(x = xDestination) and (y = yDestination) and (nextInput = 1) and (oDirection != 2){
     xDestination = xDestination - oGlobal.gridBase;
     image_angle = 180;
-    direction = 1;
+    oDirection = 1;
+}
+
+if(x = xDestination) and (y = yDestination) and (nextInput = 2) and (oDirection != 1){
+    xDestination = xDestination + oGlobal.gridBase;
+    image_angle = 0;
+    oDirection = 2;
 }
     
-if(x = xDestination) and (y = yDestination) and keyboard_check(ord('W')) and (direction != 4) {
+if(x = xDestination) and (y = yDestination) and (nextInput = 3) and (oDirection != 4) {
     yDestination = yDestination - oGlobal.gridBase;
     image_angle = 90;
-    direction = 3;
+    oDirection = 3;
 }
     
-if(x = xDestination) and (y = yDestination) and keyboard_check(ord('S')) and (direction != 3) {
+if(x = xDestination) and (y = yDestination) and (nextInput = 4) and (oDirection != 3) {
     yDestination = yDestination + oGlobal.gridBase;
     image_angle = 270;
-    direction = 4;
+    oDirection = 4;
 }
 
 //Moving oPlayer to the next destination
@@ -96,16 +115,16 @@ if (x &gt; xDestination) {
     x = x - characterSpeed;
 }
 
-//oPlayer will keep going in their current direction unless another input is detected when they reach their next destination
+//oPlayer will keep going in their current oDirection unless another input is detected when they reach their next destination
 
 if (x = xDestination and y = yDestination) {
-    if (direction = 1 and ((keyboard_check(vk_nokey)) or keyboard_check(ord('D'))))  {
+    if (oDirection = 1 and ((keyboard_check(vk_nokey)) or keyboard_check(ord('D'))))  {
         xDestination = xDestination - oGlobal.gridBase;
-    }else if (direction = 2 and ((keyboard_check(vk_nokey))or keyboard_check(ord('A')))){
+    }else if (oDirection = 2 and ((keyboard_check(vk_nokey))or keyboard_check(ord('A')))){
         xDestination = xDestination + oGlobal.gridBase;
-    }else if (direction = 3 and ((keyboard_check(vk_nokey))or keyboard_check(ord('S')))){
+    }else if (oDirection = 3 and ((keyboard_check(vk_nokey))or keyboard_check(ord('S')))){
         yDestination = yDestination - oGlobal.gridBase;
-    }else if (direction = 4 and ((keyboard_check(vk_nokey))or keyboard_check(ord('W')))){
+    }else if (oDirection = 4 and ((keyboard_check(vk_nokey))or keyboard_check(ord('W')))){
         yDestination = yDestination + oGlobal.gridBase;
     }
 }
@@ -115,25 +134,25 @@ if (x = xDestination and y = yDestination) {
 if (x&lt;(room_width-room_width)){
     xDestination = (oGlobal.gridBase/2);
     image_angle = 0;
-    direction = 2;
+    oDirection = 2;
 }
 
 if (x&gt;(room_width)){
     xDestination = room_width - (oGlobal.gridBase/2);
     image_angle = 180;
-    direction = 1;
+    oDirection = 1;
 }
 
 if (y&lt;(room_height-room_height)){
     yDestination = (oGlobal.gridBase/2);
     image_angle = 270;
-    direction = 4;
+    oDirection = 4;
 }
 
 if (y&gt;(room_height)){
     yDestination = room_height - (oGlobal.gridBase/2);
     image_angle = 90;
-    direction = 3;
+    oDirection = 3;
 }
 </string>
           </argument>
