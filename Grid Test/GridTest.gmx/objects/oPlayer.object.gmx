@@ -55,6 +55,8 @@ nextInput = 0
 
 characterSpeed = 4
 
+draw_text(object.15,object.15-sprite_height,nextInput)
+
 //Buffering input for next available input opportunity
 
 if keyboard_check(ord('A')) {
